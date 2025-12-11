@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ndaiya Tutor Dashboard — Manage your booked lessons." />
+  <title>Dashboard | Ndaiya Tutor</title>
+  <link rel="stylesheet" href="tutor-dashboard.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="dashboard-header">
+    <div class="container">
+      <div class="header-left">
+        <span class="logo-icon">🎓</span>
+        <h1>Ndaiya Tutor</h1>
+      </div>
+      <div class="header-right">
+        <div class="user-info">
+          <span class="user-name">Mr. Banda</span>
+          <div class="avatar" id="tutor-avatar">MB</div>
+        </div>
+        <button id="btn-logout" class="btn btn-outline">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <aside class="sidebar">
+      <nav>
+        <a href="#" class="active">📌 Booked Lessons</a>
+        <a href="#">📊 Performance</a>
+        <a href="updates/news-updates.html">📰 News & Jobs</a>
+        <a href="updates/job-updates.html">💼 Lessons</a>
+        <a href="updates/earnernings.html">💰 Earnings</a>
+        <a href="settings/tutor-settings.html">⚙️ Settings</a>
+      </nav>
+    </aside>
+
+    <section class="main-content">
+      <div class="page-header">
+        <h2>Upcoming Lessons</h2>
+        <p>Lessons booked and paid for by learners. Accept to teach within 30 mins of start time.</p>
+      </div>
+
+      <!-- Lesson Feed -->
+      <div id="lessons-feed" class="lessons-feed">
+        <!-- Lessons will be populated by JS -->
+        <div class="lesson-placeholder">
+          <p>Loading your lessons...</p>
+        </div>
+      </div>
+
+      <!-- No Lessons State -->
+      <div id="no-lessons" class="no-lessons" style="display:none;">
+        <div class="illustration">🎓</div>
+        <h3>No upcoming lessons</h3>
+        <p>Learners will book sessions with you soon!</p>
+        <button class="btn btn-secondary">Refresh</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ✅ Lesson Detail Modal -->
+  <div id="lesson-modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Mathematics Lesson</h3>
+        <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="lesson-meta">
+          <div class="learner-info">
+            <div class="avatar-large" id="modal-avatar">JS</div>
+            <div>
+              <strong id="modal-learner-name">Jane S.</strong><br>
+              <span id="modal-grade" class="meta-tag">Grade 10</span>
+            </div>
+          </div>
+          <div class="status-badge" id="modal-status">Paid • Confirmed</div>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Subject</span>
+          <span id="modal-subject" class="value">Mathematics</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Topic</span>
+          <span id="modal-topic" class="value">Quadratic Equations</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Focus Area</span>
+          <span id="modal-focus" class="value">Solving by factorization & formula</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Date & Time</span>
+          <span id="modal-datetime" class="value">Mon, 8 Dec 2025 • 15:30 EAT</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Duration</span>
+          <span id="modal-duration" class="value">60 minutes</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Location</span>
+          <span class="value">Ndaiya Video Room (auto-join link provided on acceptance)</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="modal-cancel" class="btn btn-outline">Cancel</button>
+        <button id="modal-accept" class="btn btn-primary" disabled>
+          Accept to Teach (Available in 28 mins)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📦 Scripts -->
+  <script src="tutor-dashboard.js"></script>
+</body>
+</html>

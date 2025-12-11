@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ndaiya Learner Dashboard</title>
+  <link rel="stylesheet" href="learners-dashboard.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header / Nav -->
+  <header class="header">
+    <div class="container">
+      <div class="header-left">
+        <h1 class="logo">Ndaiya</h1>
+      </div>
+      <div class="header-right">
+        <button class="btn-icon" aria-label="Notifications">
+          <span class="icon">🔔</span>
+          <span class="badge" id="notif-badge">3</span>
+        </button>
+        <div class="user-menu">
+          <button id="user-menu-btn" class="user-avatar" aria-expanded="false" aria-controls="user-dropdown">
+            👤
+          </button>
+          <div id="user-dropdown" class="dropdown" hidden>
+            <a href="#" class="dropdown-item">Profile</a>
+            <a href="settings/learner-settings.html" class="dropdown-item">Settings</a>
+            <a href="#" class="dropdown-item">Logout</a>
+          </div>
+        </div>
+        <a href="settings/learner-settings.html" class="btn-icon" aria-label="Settings">
+          <span class="icon">⚙️</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="main">
+    <div class="container">
+      <!-- ✅ Quick Actions (Desktop/Tablet ≥528px) -->
+      <section class="quick-actions desktop-only">
+        <h2 class="sr-only">Quick Actions</h2>
+        <div class="card-grid">
+          <button class="action-card" id="btn-book-lesson">
+            <span class="icon">🗓️</span>
+            <span>Book a Lesson</span>
+          </button>
+          <button class="action-card" id="btn-post-feed">
+            <span class="icon">✏️</span>
+            <span>Post News Feed</span>
+          </button>
+          <button class="action-card" id="btn-toggle-feed">
+            <span class="icon">📰</span>
+            <span>Feeds</span>
+          </button>
+          <a href="#" class="action-card">
+            <span class="icon">📖</span>
+            <span>My Lessons</span>
+          </a>
+          <a href="#" class="action-card">
+            <span class="icon">📈</span>
+            <span>Progress Tracker</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Upcoming & Sidebar (responsive grid) -->
+      <div class="dashboard-grid">
+        <div id="feed-container" class="feed-container" hidden>
+          <section class="news-feed">
+            <div class="feed-header">
+              <h2>News Feed</h2>
+              <div class="feed-tabs">
+                <button class="tab active" data-tab="all">All Feeds</button>
+                <button class="tab" data-tab="mine">My Posts</button>
+                <button class="tab" data-tab="pinned">Pinned</button>
+              </div>
+            </div>
+
+            <div class="feed-posts" id="feed-posts">
+              <!-- Posts will be injected here -->
+            </div>
+          </section>
+        </div>
+
+        <aside class="sidebar">
+          <div class="sidebar-card">
+            <h3>Upcoming Lessons</h3>
+            <ul class="lesson-list" id="upcoming-lessons">
+              <li>
+                <strong>Mon, 10 Dec • 4:00 PM</strong><br>
+                <span>Maths — Trigonometry</span>
+                <div class="lesson-actions">
+                  <button class="btn-sm btn-outline">Join</button>
+                  <button class="btn-sm">Reschedule</button>
+                </div>
+              </li>
+              <li>
+                <strong>Tue, 11 Dec • 10:30 AM</strong><br>
+                <span>English — Essay Writing</span>
+                <div class="lesson-actions">
+                  <button class="btn-sm btn-outline">Join</button>
+                  <button class="btn-sm">Reschedule</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Weekly Goal</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 66%"></div>
+            </div>
+            <p><strong>2/3</strong> lessons completed</p>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Active Study Groups</h3>
+            <ul class="group-list">
+              <li>🔬 Science Champions (5 members)</li>
+              <li>🧠 Maths Masters (8 members)</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- ✅ Bottom Navigation (Mobile <528px) -->
+  <nav class="bottom-nav mobile-only" aria-label="Main actions">
+    <button class="nav-btn" id="mobile-book" aria-label="Book a Lesson">
+      <span class="icon">🗓️</span>
+      <span class="label">Book</span>
+    </button>
+    <button class="nav-btn" id="mobile-post" aria-label="Post News Feed">
+      <span class="icon">✏️</span>
+      <span class="label">Post</span>
+    </button>
+    <button class="nav-btn active" id="mobile-feeds" aria-label="News Feed">
+      <span class="icon">📰</span>
+      <span class="label">Feeds</span>
+    </button>
+    <a href="#" class="nav-btn" aria-label="My Lessons">
+      <span class="icon">📖</span>
+      <span class="label">Lessons</span>
+    </a>
+    <a href="#" class="nav-btn" aria-label="Progress Tracker">
+      <span class="icon">📈</span>
+      <span class="label">Progress</span>
+    </a>
+  </nav>
+
+  <!-- Modal: Book Lesson -->
+  <div id="modal-book" class="modal" hidden>
+    <div class="modal-overlay" tabindex="-1"></div>
+    <div class="modal-content" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-desc">
+      <button class="modal-close" id="close-modal">&times;</button>
+      <h2 id="modal-title">🗓️ Schedule Your Lesson</h2>
+      <p id="modal-desc" class="sr-only">Fill in the details to book a tutoring session.</p>
+
+      <form id="booking-form">
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" required>
+            <option value="">Select subject</option>
+            <option value="maths">Mathematics</option>
+            <option value="english">English</option>
+            <option value="physics">Physics</option>
+            <option value="ict">ICT</option>
+            <option value="agri">Agriculture</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="topic">Topic</label>
+          <select id="topic" disabled>
+            <option value="">Select subject first</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Area of Focus</label>
+          <div class="chips" id="focus-chips">
+            <label class="chip">
+              <input type="checkbox" name="focus" value="concept">
+              <span>Concept Clarification</span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="focus" value="exam">
+              <span>Exam Prep</span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="focus" value="homework">
+              <span>Homework Help</span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="focus" value="project">
+              <span>Project Guidance</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Duration</label>
+          <div class="radio-group">
+            <label><input type="radio" name="duration" value="30" required> 30 min</label>
+            <label><input type="radio" name="duration" value="45"> 45 min</label>
+            <label><input type="radio" name="duration" value="60"> 60 min</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="datetime">Preferred Time</label>
+          <input type="datetime-local" id="datetime" required>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Notes (Optional)</label>
+          <textarea id="notes" placeholder="e.g., I struggled with quadratic equations last week"></textarea>
+        </div>
+
+        <div class="modal-buttons">
+          <button type="button" class="btn btn-secondary" id="cancel-booking">Cancel</button>
+          <button type="submit" class="btn btn-primary">✅ Confirm & Book</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Post Feed -->
+  <div id="modal-post" class="modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" role="dialog" aria-labelledby="post-modal-title">
+      <button class="modal-close" id="close-post-modal">&times;</button>
+      <h2 id="post-modal-title">✍️ Share with Learners</h2>
+
+      <form id="post-form">
+        <div class="form-group">
+          <label for="post-text" class="sr-only">Your message</label>
+          <textarea id="post-text" placeholder="What’s on your mind? 🌟" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="file-label">
+            📎 Attach image (optional)
+            <input type="file" id="post-image" accept="image/*">
+          </label>
+          <small>Max 2MB. Please add description for accessibility.</small>
+          <input type="text" id="alt-text" placeholder="Describe the image for screen readers" disabled>
+        </div>
+
+        <div class="modal-buttons">
+          <button type="button" class="btn btn-secondary" id="cancel-post">Cancel</button>
+          <button type="submit" class="btn btn-primary">📤 Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="learners-dashboard.js"></script>
+</body>
+</html>

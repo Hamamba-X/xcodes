@@ -1,0 +1,158 @@
+/* dashboard-common.css — shared across all tutor pages */
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --light: #f8fafc;
+  --dark: #0f172a;
+  --gray: #64748b;
+  --border: #e2e8f0;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  --radius: 8px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: #f1f5f9;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.dashboard-header {
+  background: white;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dashboard-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--dark);
+}
+.logo-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+.logo-link h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.dashboard-nav {
+  display: flex;
+  gap: 1rem;
+}
+.dashboard-nav a {
+  text-decoration: none;
+  color: var(--gray);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+}
+.dashboard-nav a:hover,
+.dashboard-nav a.active {
+  color: var(--primary);
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.btn {
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-size: 0.9375rem;
+}
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-dark); }
+
+.btn-secondary { background: var(--success); color: white; }
+.btn-outline {
+  border: 1px solid var(--gray);
+  color: var(--gray);
+  background: transparent;
+}
+.btn-outline:hover { 
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(37, 99, 235, 0.05);
+}
+
+/* Page Header */
+.page-header {
+  margin: 2rem 0 1.5rem;
+}
+.page-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+.page-header p {
+  color: var(--gray);
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filters select {
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: 0.9375rem;
+}
+
+/* Avatars */
+.learner-avatar,
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-row { flex-direction: column; align-items: flex-start; }
+  .dashboard-nav { gap: 0.5rem; }
+  .dashboard-nav a { padding: 0.5rem; font-size: 0.875rem; }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Latest news, platform updates, and insights for Ndaiya tutors." />
+  <title>News & Updates | Ndaiya Tutor</title>
+  <link rel="stylesheet" href="css/dashboard-common.css" />
+  <link rel="stylesheet" href="css/news-updates.css" />
+  <link rel="icon" href="image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
+</head>
+<body>
+  <!-- Header (shared across dashboard pages) -->
+  <header class="dashboard-header">
+    <div class="container">
+      <div class="header-left">
+        <a href="tutor-dashboard.html" class="logo-link">
+          <span class="logo-icon">🎓</span>
+          <h1>Ndaiya Tutor</h1>
+        </a>
+      </div>
+      <div class="header-right">
+        <nav class="dashboard-nav">
+          <a href="news-updates.html" class="active">📰 News</a>
+          <a href="job-updates.html">💼 Jobs</a>
+          <a href="tutor-dashboard.html">📌 Lessons</a>
+        </nav>
+        <div class="user-actions">
+          <button id="btn-logout" class="btn btn-outline">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h1>📰 News & Updates</h1>
+      <p>Platform announcements, teaching resources, and ed-tech insights.</p>
+    </section>
+
+    <div class="news-feed">
+      <!-- Featured Update -->
+      <article class="news-card featured">
+        <span class="tag feature-tag">FEATURE</span>
+        <h2>Introducing Real-Time Lesson Analytics 🔍</h2>
+        <time datetime="2025-12-07">Dec 7, 2025</time>
+        <p>
+          Track learner engagement, session ratings, and KPIs in real time. Now live for all tutors.
+          See heatmaps of topic difficulty and auto-generated improvement suggestions.
+        </p>
+        <a href="#" class="btn btn-secondary">Learn More</a>
+      </article>
+
+      <!-- Regular Updates -->
+      <article class="news-card">
+        <span class="tag">PLATFORM</span>
+        <h3>Mobile App Beta Launch 📱</h3>
+        <time datetime="2025-12-01">Dec 1, 2025</time>
+        <p>
+          Teach on the go! Our Android/iOS app is now in closed beta. 
+          <strong>Apply as a beta tester</strong> and get early access + ZMW 100 MoMo credit.
+        </p>
+        <a href="#" class="btn btn-outline">Join Beta</a>
+      </article>
+
+      <article class="news-card">
+        <span class="tag">SECURITY</span>
+        <h3>Enhanced Secret Management with Dotenvx Ops 🔐</h3>
+        <time datetime="2025-11-25">Nov 25, 2025</time>
+        <p>
+          Backend now uses <a href="https://dotenvx.com/ops" target="_blank">Dotenvx Ops</a> for SOC 2–ready secret handling.
+          Zero manual .env edits. Full audit logs for compliance reporting.
+        </p>
+        <div class="ops-highlight">
+          ✅ Sync • ✅ DB • ✅ Audit<br>
+          <small>Foundational features completed (Oct 14, 2025)</small>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <span class="tag">EDUCATION</span>
+        <h3>Zambia Curriculum Alignment Guide 📚</h3>
+        <time datetime="2025-11-18">Nov 18, 2025</time>
+        <p>
+          Free downloadable guide mapping Grade 10–12 topics to national exam objectives.
+          Includes sample lesson plans and assessment rubrics.
+        </p>
+        <a href="#" class="btn btn-outline">Download PDF</a>
+      </article>
+
+      <article class="news-card">
+        <span class="tag">COMMUNITY</span>
+        <h3>Tutor Spotlight: Ms. Chanda 🌟</h3>
+        <time datetime="2025-11-10">Nov 10, 2025</time>
+        <p>
+          “Ndaiya helped me reach 200+ learners across rural Zambia — all from my village home.”
+          Read how she integrates MoMo payouts and offline resources.
+        </p>
+        <a href="#" class="btn btn-outline">Read Story</a>
+      </article>
+    </div>
+
+    <div class="pagination">
+      <button class="btn btn-outline" disabled>← Prev</button>
+      <span class="page-info">Page 1 of 3</span>
+      <button class="btn btn-outline">Next →</button>
+    </div>
+  </main>
+
+  <script src="js/dashboard-common.js"></script>
+  <script src="js/news-updates.js"></script>
+</body>
+</html>

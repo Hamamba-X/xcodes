@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="New tutoring opportunities, bookings, and session requests for Ndaiya tutors." />
+  <title>Job Updates | Ndaiya Tutor</title>
+  <link rel="stylesheet" href="css/dashboard-common.css" />
+  <link rel="stylesheet" href="css/job-updates.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
+</head>
+<body>
+  <!-- Shared Header -->
+  <header class="dashboard-header">
+    <div class="container">
+      <div class="header-left">
+        <a href="tutor-dashboard.html" class="logo-link">
+          <span class="logo-icon">🎓</span>
+          <h1>Ndaiya Tutor</h1>
+        </a>
+      </div>
+      <div class="header-right">
+        <nav class="dashboard-nav">
+          <a href="news-updates.html">📰 News</a>
+          <a href="job-updates.html" class="active">💼 Jobs</a>
+          <a href="tutor-dashboard.html">📌 Lessons</a>
+        </nav>
+        <div class="user-actions">
+          <button id="btn-logout" class="btn btn-outline">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <div class="header-row">
+        <div>
+          <h1>💼 Job Updates</h1>
+          <p>New opportunities, bookings, and session requests.</p>
+        </div>
+        <div class="filters">
+          <select id="filter-status">
+            <option value="all">All Statuses</option>
+            <option value="pending">Pending Acceptance</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <div class="jobs-feed">
+      <!-- New Booking -->
+      <article class="job-card new">
+        <div class="job-badge">🆕 New</div>
+        <div class="job-header">
+          <div class="learner-avatar">JS</div>
+          <div class="job-title">
+            <h2>Grade 10 Physics: Newton’s Laws</h2>
+            <p><strong>Jane S.</strong> • Lusaka • MoMo Paid</p>
+          </div>
+          <time datetime="2025-12-09T14:00:00+03:00" class="job-time">
+            Dec 9 • 14:00 EAT
+          </time>
+        </div>
+        <div class="job-body">
+          <p>🔍 <strong>Focus:</strong> Free-body diagrams, friction, inclined planes</p>
+          <p>⏱️ <strong>Duration:</strong> 45 min • 💰 <strong>Fee:</strong> ZMW 85</p>
+        </div>
+        <div class="job-actions">
+          <button class="btn btn-primary" onclick="acceptJob('JOB101')">Accept to Teach</button>
+          <button class="btn btn-outline">View Learner</button>
+        </div>
+      </article>
+
+      <!-- Upcoming Confirmed -->
+      <article class="job-card confirmed">
+        <div class="job-badge">✅ Confirmed</div>
+        <div class="job-header">
+          <div class="learner-avatar">KO</div>
+          <div class="job-title">
+            <h2>Form 3 Mathematics: Quadratic Eqns</h2>
+            <p><strong>Kwame O.</strong> • Ndola • MoMo Paid</p>
+          </div>
+          <time datetime="2025-12-08T15:30:00+03:00" class="job-time">
+            Today • 15:30 EAT
+          </time>
+        </div>
+        <div class="job-body">
+          <p>🔍 <strong>Focus:</strong> Solving by factorization & quadratic formula</p>
+          <p>⏱️ <strong>Duration:</strong> 60 min • 💰 <strong>Fee:</strong> ZMW 110</p>
+        </div>
+        <div class="job-actions">
+          <button class="btn btn-secondary" onclick="joinSession('JOB102')">Join Session</button>
+          <button class="btn btn-outline">Prep Materials</button>
+        </div>
+      </article>
+
+      <!-- Completed -->
+      <article class="job-card completed">
+        <div class="job-badge">✔️ Completed</div>
+        <div class="job-header">
+          <div class="learner-avatar">MT</div>
+          <div class="job-title">
+            <h2>Grade 12 Chemistry: Organic Reactions</h2>
+            <p><strong>Mwila T.</strong> • Kitwe • MoMo Settled</p>
+          </div>
+          <time datetime="2025-12-05T10:00:00+03:00" class="job-time">
+            Dec 5 • 10:00 EAT
+          </time>
+        </div>
+        <div class="job-body">
+          <p>⭐ <strong>Rating:</strong> 4.9/5 (5 reviews)</p>
+          <p>⏱️ <strong>Duration:</strong> 50 min • 💰 <strong>Earned:</strong> ZMW 95</p>
+        </div>
+        <div class="job-actions">
+          <button class="btn btn-outline">View Feedback</button>
+          <button class="btn btn-outline">Rebook</button>
+        </div>
+      </article>
+
+      <!-- Requested (not yet paid) -->
+      <article class="job-card requested">
+        <div class="job-badge">📩 Requested</div>
+        <div class="job-header">
+          <div class="learner-avatar">PN</div>
+          <div class="job-title">
+            <h2>University Maths: Calculus</h2>
+            <p><strong>Patricia N.</strong> • Livingstone • Pending Payment</p>
+          </div>
+          <time datetime="2025-12-12T09:00:00+03:00" class="job-time">
+            Dec 12 • 09:00 EAT
+          </time>
+        </div>
+        <div class="job-body">
+          <p>🔍 <strong>Focus:</strong> Integration techniques, applications</p>
+          <p>⏱️ <strong>Duration:</strong> 75 min • 💰 <strong>Proposed Fee:</strong> ZMW 130</p>
+        </div>
+        <div class="job-actions">
+          <button class="btn btn-secondary">Send Quote</button>
+          <button class="btn btn-outline">Decline</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="summary-box">
+      <h3>📅 Upcoming This Week</h3>
+      <ul>
+        <li>✅ 2 confirmed sessions</li>
+        <li>🆕 1 new booking</li>
+        <li>📩 3 pending requests</li>
+      </ul>
+      <p><strong>Total Earnings (Dec):</strong> ZMW 290</p>
+    </div>
+  </main>
+
+  <script src="js/dashboard-common.js"></script>
+  <script src="js/job-updates.js"></script>
+</body>
+</html>

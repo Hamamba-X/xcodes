@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en-ZM">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#198754">
+  <title>Learner Settings • Ndaiya Zambia</title>
+  <link rel="stylesheet" href="learner-settings.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="learner-settings.css" as="style">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="container">
+      <a href="..\learners-dashboard.html" class="back-btn" aria-label="Back to dashboard">←</a>
+      <div class="header-title">
+        <h1 class="page-title">Settings</h1>
+        <p class="page-subtitle">Learner • Grade 11</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon" aria-label="Help">
+          <span>❓</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <div class="container">
+      <!-- Profile Summary -->
+      <section class="profile-summary">
+        <div class="avatar">🧑‍🎓</div>
+        <div class="profile-info">
+          <h2 class="profile-name">Habenzu Mazuba</h2>
+          <p class="profile-school">Ndaiya High School</p>
+        </div>
+        <button class="btn-icon profile-edit" aria-label="Edit profile">
+          <span>✏️</span>
+        </button>
+      </section>
+
+      <!-- Mobile Tab Selector -->
+      <div class="mobile-tab-selector" aria-label="Settings sections">
+        <label for="mobile-tab-select" class="sr-only">Go to section</label>
+        <select id="mobile-tab-select" class="mobile-tab-select">
+          <option value="profile">Profile</option>
+          <option value="lessons">Lesson Preferences</option>
+          <option value="privacy">Privacy & Security</option>
+          <option value="notifications">Notifications</option>
+          <option value="accessibility">Accessibility</option>
+          <option value="payments">Payment Methods</option>
+        </select>
+      </div>
+
+      <!-- Desktop Tabs -->
+      <nav class="settings-nav desktop-tabs">
+        <button class="nav-tab active" data-target="profile">Profile</button>
+        <button class="nav-tab" data-target="lessons">Lesson Preferences</button>
+        <button class="nav-tab" data-target="privacy">Privacy & Security</button>
+        <button class="nav-tab" data-target="notifications">Notifications</button>
+        <button class="nav-tab" data-target="accessibility">Accessibility</button>
+        <button class="nav-tab" data-target="payments">Payment</button>
+      </nav>
+
+      <!-- Settings Sections -->
+      <div class="settings-content">
+        <!-- 👤 Profile -->
+        <section id="profile" class="settings-section active" role="tabpanel" aria-labelledby="tab-profile">
+          <h2 class="section-title">Profile</h2>
+          <div class="section-body">
+            <div class="form-group">
+              <label for="full-name" class="form-label">Full Name</label>
+              <input type="text" id="full-name" value="Habenzu Mazuba" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <div class="input-readonly">
+                <span id="email">habenzu@example.com</span>
+                <span class="hint">Verified • Cannot be changed</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number</label>
+              <div class="input-with-prefix">
+                <span class="prefix">+260</span>
+                <input type="tel" id="phone" value="977123456" class="form-input" 
+                       aria-describedby="phone-hint">
+              </div>
+              <p id="phone-hint" class="hint">Used for SMS confirmations (MTN/Airtel)</p>
+            </div>
+            <div class="form-group">
+              <label for="school" class="form-label">School</label>
+              <select id="school" class="form-select">
+                <option>— Select school —</option>
+                <option selected>Ndaiya High School</option>
+                <option>Chengelo Secondary</option>
+                <option>Kasama Boys</option>
+                <option>St. Mary’s Kitwe</option>
+                <option>Mpelembe Secondary</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="grade" class="form-label">Grade / Level</label>
+              <select id="grade" class="form-select">
+                <option>— Select grade —</option>
+                <option>Grade 8</option>
+                <option>Grade 9</option>
+                <option>Grade 10</option>
+                <option selected>Grade 11</option>
+                <option>Grade 12</option>
+                <option>Adult Learner</option>
+              </select>
+            </div>
+            <button class="btn btn-primary btn-block">💾 Save Profile</button>
+          </div>
+        </section>
+
+        <!-- 📚 Lesson Preferences -->
+        <section id="lessons" class="settings-section" role="tabpanel" aria-labelledby="tab-lessons">
+          <h2 class="section-title">Lesson Preferences</h2>
+          <div class="section-body">
+            <div class="form-group">
+              <label class="form-label">Subjects I Need Help With</label>
+              <div class="chips">
+                <button type="button" class="chip active" aria-pressed="true">Mathematics</button>
+                <button type="button" class="chip active" aria-pressed="true">Physics</button>
+                <button type="button" class="chip">Chemistry</button>
+                <button type="button" class="chip">English</button>
+                <button type="button" class="chip add">➕ Add</button>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Preferred Tutor Gender</label>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="tutor-gender" value="no-preference" checked>
+                  <span>No preference</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="tutor-gender" value="male">
+                  <span>Male</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="tutor-gender" value="female">
+                  <span>Female</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Lesson Language</label>
+              <select class="form-select">
+                <option>English</option>
+                <option selected>Bemba</option>
+                <option>Nyanja</option>
+                <option>Tonga</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">When Do You Study Best?</label>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="study-time" value="morning">
+                  <span>Morning (6–10 AM)</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="study-time" value="afternoon" checked>
+                  <span>Afternoon (2–5 PM)</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="study-time" value="evening">
+                  <span>Evening (6–9 PM)</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Weekly Lesson Goal</label>
+              <select class="form-select">
+                <option>1 lesson</option>
+                <option selected>2 lessons</option>
+                <option>3+ lessons</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+            
+            <button class="btn btn-primary btn-block">💾 Save Preferences</button>
+          </div>
+        </section>
+
+        <!-- 🔒 Privacy & Security -->
+        <section id="privacy" class="settings-section" role="tabpanel" aria-labelledby="tab-privacy">
+          <h2 class="section-title">Privacy & Security</h2>
+          <div class="section-body">
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <h3 class="toggle-title">Two-Factor Authentication</h3>
+                <p class="toggle-desc">Secure your account with SMS (MTN/Airtel)</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="2fa-toggle">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <h3 class="toggle-title">Show My Name in News Feed</h3>
+                <p class="toggle-desc">When you post or comment</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <h3 class="toggle-title">Anonymous Questions</h3>
+                <p class="toggle-desc">Ask tutors questions without revealing your name</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <button class="btn btn-secondary btn-block">📥 Export My Data</button>
+            
+            <div class="danger-zone">
+              <h3 class="danger-title">Pause Account</h3>
+              <p class="danger-desc">Hide your profile during exams/breaks</p>
+              <button class="btn btn-warning btn-block">⏸️ Pause Account</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 🔔 Notifications -->
+        <section id="notifications" class="settings-section" role="tabpanel" aria-labelledby="tab-notifications">
+          <h2 class="section-title">Notifications</h2>
+          <div class="section-body">
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <h3 class="toggle-title">Tutor Available Now</h3>
+                <p class="toggle-desc">When a tutor goes online in your subject</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <h3 class="toggle-title">Lesson Reminder</h3>
+                <p class="toggle-desc">30 minutes before session</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <h3 class="toggle-title">Weekly Progress Summary</h3>
+                <p class="toggle-desc">Sent every Sunday evening</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Notification Method</label>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="notify-method" value="sms" checked>
+                  <span>SMS (MTN/Airtel)</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="notify-method" value="email">
+                  <span>Email</span>
+                </label>
+              </div>
+              <p class="hint">💡 SMS is free for Ndaiya notifications</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ♿ Accessibility -->
+        <section id="accessibility" class="settings-section" role="tabpanel" aria-labelledby="tab-accessibility">
+          <h2 class="section-title">Accessibility</h2>
+          <div class="section-body">
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <h3 class="toggle-title">High Contrast Mode</h3>
+                <p class="toggle-desc">Improve readability in bright sunlight</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="high-contrast">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <h3 class="toggle-title">Large Text</h3>
+                <p class="toggle-desc">For easier reading on small screens</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="large-text">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <h3 class="toggle-title">Audio Lesson Summaries</h3>
+                <p class="toggle-desc">Get key points as voice notes after lessons</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <div class="form-group">
+              <label for="data-saver" class="form-label">Data Saver Mode</label>
+              <select id="data-saver" class="form-select">
+                <option value="off">Off</option>
+                <option selected>Medium (recommended)</option>
+                <option value="high">High (low bandwidth)</option>
+              </select>
+              <p class="hint">Reduces image/video quality to save data</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 💰 Payment Methods -->
+        <section id="payments" class="settings-section" role="tabpanel" aria-labelledby="tab-payments">
+          <h2 class="section-title">Payment Methods</h2>
+          <div class="section-body">
+            <p class="hint">How you'll pay for lessons (ZMW only). No bank details needed!</p>
+            
+            <!-- MTN Mobile Money -->
+            <div class="payment-method active">
+              <div class="pm-icon">📱</div>
+              <div class="pm-info">
+                <strong class="pm-name">MTN Mobile Money</strong>
+                <span class="pm-number">+260 977 *** 456</span>
+              </div>
+              <button class="btn-icon pm-edit" aria-label="Edit MTN number">
+                <span>✏️</span>
+              </button>
+            </div>
+
+            <!-- Airtel Money -->
+            <div class="payment-method">
+              <div class="pm-icon">📱</div>
+              <div class="pm-info">
+                <strong class="pm-name">Airtel Money</strong>
+                <span class="pm-number">+260 966 *** 789</span>
+              </div>
+              <button class="btn-icon pm-edit" aria-label="Edit Airtel number">
+                <span>✏️</span>
+              </button>
+            </div>
+
+            <button class="btn btn-secondary btn-block add-payment">
+              ➕ Add MTN or Airtel Number
+            </button>
+
+            <div class="form-group">
+              <label class="form-label">Default Payment Method</label>
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="default-pm" value="mtn" checked>
+                  <span>MTN Mobile Money</span>
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="default-pm" value="airtel">
+                  <span>Airtel Money</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Zambia Pricing -->
+            <div class="pricing-card">
+              <h3 class="pricing-title">Lesson Pricing (ZMW)</h3>
+              <ul class="pricing-list">
+                <li><span>Basic (30 min)</span> <strong>ZMW 15</strong></li>
+                <li><span>Standard (45 min)</span> <strong>ZMW 20</strong></li>
+                <li><span>Premium (60 min)</span> <strong>ZMW 25</strong></li>
+              </ul>
+              <p class="hint">💡 Pay only after lesson. No subscriptions.</p>
+            </div>
+
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <h3 class="toggle-title">Auto-Pay for Booked Lessons</h3>
+                <p class="toggle-desc">Confirm payment automatically when lesson starts</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="learner-settings.js"></script>
+</body>
+</html>

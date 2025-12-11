@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Track earnings, session history, and withdraw to MoMo (MTN/Airtel/Zamtel) securely." />
+  <title>Earnings | Ndaiya Tutor</title>
+  <link rel="stylesheet" href="css/dashboard-common.css" />
+  <link rel="stylesheet" href="css/earnings.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
+</head>
+<body>
+  <!-- 📱 Mobile Menu Toggle -->
+  <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Shared Dashboard Header -->
+  <header class="dashboard-header">
+    <div class="container">
+      <div class="header-left">
+        <a href="tutor-dashboard.html" class="logo-link">
+          <span class="logo-icon">🎓</span>
+          <h1>Ndaiya Tutor</h1>
+        </a>
+      </div>
+      <div class="header-right">
+        <nav class="dashboard-nav" id="main-nav">
+          <a href="news-updates.html">📰 News</a>
+          <a href="job-updates.html">💼 Jobs</a>
+          <a href="earnings.html" class="active">💰 Earnings</a>
+        </nav>
+        <div class="user-actions">
+          <a href="#withdrawal-section" class="btn btn-outline">Withdraw</a>
+          <button id="btn-logout" class="btn btn-outline">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 💰 Summary Cards - Now fully responsive -->
+    <section class="summary-section">
+      <div class="summary-grid">
+        <!-- Total Balance -->
+        <div class="summary-card primary collapsible">
+          <details open>
+            <summary>
+              <h2>Total Balance</h2>
+              <span class="toggle-icon">▼</span>
+            </summary>
+            <div class="card-content">
+              <p class="amount">ZMW <span id="total-balance">1,245.00</span></p>
+              <p class="caption">Available for withdrawal</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- This Month -->
+        <div class="summary-card success collapsible">
+          <details>
+            <summary>
+              <h2>This Month</h2>
+              <span class="toggle-icon">▼</span>
+            </summary>
+            <div class="card-content">
+              <p class="amount">ZMW <span id="month-earned">890.00</span></p>
+              <p class="caption">+12% vs last month</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Pending Payout -->
+        <div class="summary-card info collapsible">
+          <details>
+            <summary>
+              <h2>Pending Payout</h2>
+              <span class="toggle-icon">▼</span>
+            </summary>
+            <div class="card-content">
+              <p class="amount">ZMW <span id="pending-payout">110.00</span></p>
+              <p class="caption">Sessions completed, not yet settled</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Withdrawable -->
+        <div class="summary-card secondary collapsible">
+          <details>
+            <summary>
+              <h2>Withdrawable</h2>
+              <span class="toggle-icon">▼</span>
+            </summary>
+            <div class="card-content">
+              <p class="amount">ZMW <span id="withdrawable">1,245.00</span></p>
+              <p class="caption">Min: ZMW 10 | Fee: 0%</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📊 Earnings Breakdown -->
+    <section class="earnings-section">
+      <div class="section-header">
+        <h2>Earnings Breakdown</h2>
+        <div class="date-selector">
+          <label for="period">Period:</label>
+          <select id="period">
+            <option value="month">This Month</option>
+            <option value="quarter">This Quarter</option>
+            <option value="year">This Year</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="charts">
+        <div class="chart-container">
+          <h3>By Subject</h3>
+          <div class="chart" id="subject-chart">
+            <div class="bar-row">
+              <span>Mathematics</span>
+              <div class="bar" style="width: 45%"><span>ZMW 400</span></div>
+            </div>
+            <div class="bar-row">
+              <span>Physics</span>
+              <div class="bar success" style="width: 30%"><span>ZMW 265</span></div>
+            </div>
+            <div class="bar-row">
+              <span>Chemistry</span>
+              <div class="bar warning" style="width: 25%"><span>ZMW 225</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <h3>By Grade Level</h3>
+          <div class="chart" id="grade-chart">
+            <div class="bar-row">
+              <span>Grade 10–12</span>
+              <div class="bar" style="width: 60%"><span>ZMW 535</span></div>
+            </div>
+            <div class="bar-row">
+              <span>Form 1–4</span>
+              <div class="bar success" style="width: 30%"><span>ZMW 270</span></div>
+            </div>
+            <div class="bar-row">
+              <span>University</span>
+              <div class="bar warning" style="width: 10%"><span>ZMW 85</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📋 Recent Sessions -->
+    <section class="sessions-section">
+      <div class="section-header">
+        <h2>Recent Sessions</h2>
+        <a href="#" class="btn btn-outline">View All</a>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="sessions-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Learner</th>
+              <th>Subject</th>
+              <th>Duration</th>
+              <th>Earnings</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dec 8, 2025</td>
+              <td><div class="avatar-inline">JS</div> Jane S.</td>
+              <td>Mathematics</td>
+              <td>60 min</td>
+              <td>ZMW 110.00</td>
+              <td><span class="status paid">Paid</span></td>
+            </tr>
+            <tr>
+              <td>Dec 7, 2025</td>
+              <td><div class="avatar-inline">KO</div> Kwame O.</td>
+              <td>Physics</td>
+              <td>45 min</td>
+              <td>ZMW 85.00</td>
+              <td><span class="status paid">Paid</span></td>
+            </tr>
+            <tr>
+              <td>Dec 5, 2025</td>
+              <td><div class="avatar-inline">MT</div> Mwila T.</td>
+              <td>Chemistry</td>
+              <td>50 min</td>
+              <td>ZMW 95.00</td>
+              <td><span class="status paid">Paid</span></td>
+            </tr>
+            <tr>
+              <td>Dec 3, 2025</td>
+              <td><div class="avatar-inline">PN</div> Patricia N.</td>
+              <td>Calculus</td>
+              <td>75 min</td>
+              <td>ZMW 130.00</td>
+              <td><span class="status pending">Processing</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 💸 Withdrawal Section -->
+    <section class="withdrawal-section" id="withdrawal-section">
+      <div class="section-header">
+        <h2>Withdraw to Mobile Money</h2>
+        <p class="subtitle">Funds arrive in <strong>≤60 seconds</strong>. Zero fees.</p>
+      </div>
+
+      <div class="withdrawal-card">
+        <form id="withdrawal-form">
+          <div class="form-group">
+            <label for="withdraw-amount">Amount (ZMW)</label>
+            <div class="input-with-btn">
+              <input 
+                type="number" 
+                id="withdraw-amount" 
+                min="10" 
+                max="1245" 
+                value="500" 
+                required 
+              />
+              <button type="button" class="btn btn-outline" onclick="setMaxAmount()">Max</button>
+            </div>
+            <small id="amount-help">Min: ZMW 10 • Max: ZMW <span id="max-amount">1,245.00</span></small>
+          </div>
+
+          <div class="form-group">
+            <label>Payment Method</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="momo" value="mtn" checked />
+                <span class="radio-icon">📶</span> MTN Money
+              </label>
+              <label>
+                <input type="radio" name="momo" value="airtel" />
+                <span class="radio-icon">📶</span> Airtel Money
+              </label>
+              <label>
+                <input type="radio" name="momo" value="zamtel" />
+                <span class="radio-icon">📶</span> Zamtel Kwacha
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="momo-number">Mobile Number</label>
+            <input 
+              type="tel" 
+              id="momo-number" 
+              placeholder="0970 123 456" 
+              pattern="\d{10}" 
+              title="10-digit number without +260" 
+              required 
+            />
+            <small>Number must match your registered MoMo account.</small>
+          </div>
+
+         
+          <button type="submit" class="btn btn-primary btn-withdraw">Withdraw ZMW <span id="btn-amount">500.00</span></button>
+        </form>
+
+        <div class="withdrawal-history">
+          <h4>Recent Withdrawals</h4>
+          <ul>
+            <li><strong>ZMW 500</strong> → MTN • Dec 1, 2025 • ✅ Completed</li>
+            <li><strong>ZMW 300</strong> → Airtel • Nov 15, 2025 • ✅ Completed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 📄 Compliance 
+    <section class="compliance-section">
+      <h2>Compliance & Reporting</h2>
+      <p>Download earnings reports for tax, audits, or record-keeping.</p>
+      <div class="export-buttons">
+        <button class="btn btn-outline" onclick="exportPDF()">
+          📄 Export PDF (SOC 2–Ready)
+        </button>
+        <button class="btn btn-outline" onclick="exportCSV()">
+          📊 Export CSV
+        </button>
+      </div>
+      <div class="compliance-note">
+        🔐 Encrypted in transit & at rest.  
+        ✅ Audit logs in <a href="https://dotenvx.com/ops" target="_blank">Dotenvx Ops</a> (Sync • DB • Audit • Team • Radar).
+      </div>
+    </section>
+  </main>
+      -->
+
+  <!-- ✅ Withdrawal Modal 
+  <div id="withdraw-modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Confirm Withdrawal</h3>
+        <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="confirmation-summary">
+          <p>You’re about to withdraw:</p>
+          <h2>ZMW <span id="confirm-amount">500.00</span></h2>
+          <p>to <strong>MTN Money</strong> ending in <strong>456</strong>.</p>
+          <p><small>Funds arrive in ≤60 seconds. No fees.</small></p>
+        </div>
+        <div class="otp-field">
+          <label for="otp">Enter 2FA Code (SMS)</label>
+          <input type="text" id="otp" maxlength="6" placeholder="123456" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="cancel-withdraw" class="btn btn-outline">Cancel</button>
+        <button id="confirm-withdraw" class="btn btn-primary">Confirm Withdrawal</button>
+      </div>
+    </div>
+  </div>
+    -->
+  <script src="js/dashboard-common.js"></script>
+  <script src="js/earnings.js"></script>
+</body>
+</html>

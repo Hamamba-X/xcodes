@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-ZM">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learner Settings • Ndaiya Zambia</title>
+  <link rel="stylesheet" href="learner-settings.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="container">
+      <a href="..\learners-dashboard.html" class="back-btn" aria-label="Back to dashboard">←</a>
+      <h1 class="page-title">Learner Settings</h1>
+      <div class="header-actions">
+        <button class="btn-icon" aria-label="Help">
+          <span>❓</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <div class="container">
+      <!-- Profile Summary -->
+      <section class="profile-summary">
+        <div class="avatar">🧑‍🎓</div>
+        <div>
+          <h2>Habenzu Mazuba</h2>
+          <p class="role-tag learner">Learner • Grade 11, Ndaiya High</p>
+        </div>
+      </section>
+
+      <!-- Settings Navigation -->
+      <nav class="settings-nav">
+        <button class="nav-tab active" data-target="profile">Profile</button>
+        <button class="nav-tab" data-target="lessons">Lesson Preferences</button>
+        <button class="nav-tab" data-target="privacy">Privacy & Security</button>
+        <button class="nav-tab" data-target="notifications">Notifications</button>
+        <button class="nav-tab" data-target="accessibility">Accessibility</button>
+        <button class="nav-tab" data-target="payments">Payment Methods</button>
+      </nav>
+
+      <!-- Settings Sections -->
+      <div class="settings-content">
+        <!-- 👤 Profile -->
+        <section id="profile" class="settings-section active">
+          <h2>Profile</h2>
+          <div class="section-body">
+            <div class="form-group">
+              <label for="full-name">Full Name</label>
+              <input type="text" id="full-name" value="Habenzu Mazuba">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" value="habenzu@example.com" readonly>
+              <small class="hint">Verified • Cannot be changed</small>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <div class="input-with-prefix">
+                <span class="prefix">+260</span>
+                <input type="tel" id="phone" value="977 123 456">
+              </div>
+              <small class="hint">Used for SMS confirmations (MTN/Airtel)</small>
+            </div>
+            <div class="form-group">
+              <label for="school">School</label>
+              <select id="school">
+                <option>— Select school —</option>
+                <option selected>Ndaiya High School</option>
+                <option>Chengelo Secondary</option>
+                <option>Kasama Boys</option>
+                <option>St. Mary’s Kitwe</option>
+                <option>Mpelembe Secondary</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="grade">Grade / Level</label>
+              <select id="grade">
+                <option>— Select grade —</option>
+                <option>Grade 8</option>
+                <option>Grade 9</option>
+                <option>Grade 10</option>
+                <option selected>Grade 11</option>
+                <option>Grade 12</option>
+                <option>Adult Learner</option>
+              </select>
+            </div>
+            <button class="btn btn-primary">💾 Save Profile</button>
+          </div>
+        </section>
+
+        <!-- 📚 Lesson Preferences -->
+        <section id="lessons" class="settings-section">
+          <h2>Lesson Preferences</h2>
+          <div class="section-body">
+            <div class="form-group">
+              <label>Subjects I Need Help With</label>
+              <div class="chips">
+                <span class="chip active">Mathematics</span>
+                <span class="chip active">Physics</span>
+                <span class="chip">Chemistry</span>
+                <span class="chip">English</span>
+                <button class="chip add">➕ Add Subject</button>
+              </div>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Preferred Tutor Gender</h3>
+                <p>Help us match you comfortably</p>
+              </div>
+              <select>
+                <option>No preference</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Lesson Language</h3>
+                <p>Instruction language preference</p>
+              </div>
+              <select>
+                <option>English</option>
+                <option selected>Bemba</option>
+                <option>Nyanja</option>
+                <option>Tonga</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>When Do You Study Best?</label>
+              <div class="radio-group">
+                <label><input type="radio" name="study-time" value="morning"> Morning (6–10 AM)</label>
+                <label><input type="radio" name="study-time" value="afternoon" checked> Afternoon (2–5 PM)</label>
+                <label><input type="radio" name="study-time" value="evening"> Evening (6–9 PM)</label>
+              </div>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Weekly Lesson Goal</h3>
+                <p>How many lessons per week?</p>
+              </div>
+              <select>
+                <option>1 lesson</option>
+                <option selected>2 lessons</option>
+                <option>3+ lessons</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+            <button class="btn btn-primary">💾 Save Preferences</button>
+          </div>
+        </section>
+
+        <!-- 🔒 Privacy & Security -->
+        <section id="privacy" class="settings-section">
+          <h2>Privacy & Security</h2>
+          <div class="section-body">
+            <div class="setting-item">
+              <div>
+                <h3>Two-Factor Authentication</h3>
+                <p>Secure your account with SMS (MTN/Airtel)</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="2fa-toggle">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Show My Name in News Feed</h3>
+                <p>When you post or comment</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Anonymous Questions</h3>
+                <p>Ask tutors questions without revealing your name</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Download My Data</h3>
+                <p>Export lessons, notes, and progress</p>
+              </div>
+              <button class="btn btn-secondary">📥 Export Data</button>
+            </div>
+            <div class="setting-item danger-zone">
+              <div>
+                <h3 class="danger">Pause Account</h3>
+                <p>Hide your profile during exams/breaks</p>
+              </div>
+              <button class="btn btn-warning">⏸️ Pause Account</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 🔔 Notifications -->
+        <section id="notifications" class="settings-section">
+          <h2>Notifications</h2>
+          <div class="section-body">
+            <div class="setting-item">
+              <div>
+                <h3>Tutor Available Now</h3>
+                <p>When a tutor goes online in your subject</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Lesson Reminder</h3>
+                <p>30 minutes before session</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Weekly Progress Summary</h3>
+                <p>Sent every Sunday evening</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label>Notification Method</label>
+              <div class="radio-group">
+                <label><input type="radio" name="notify-method" value="sms" checked> SMS (MTN/Airtel)</label>
+                <label><input type="radio" name="notify-method" value="email"> Email</label>
+              </div>
+              <small class="hint">💡 SMS is free for Ndaiya notifications</small>
+            </div>
+          </div>
+        </section>
+
+        <!-- ♿ Accessibility -->
+        <section id="accessibility" class="settings-section">
+          <h2>Accessibility</h2>
+          <div class="section-body">
+            <div class="setting-item">
+              <div>
+                <h3>High Contrast Mode</h3>
+                <p>Improve readability in bright sunlight</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="high-contrast">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Large Text</h3>
+                <p>For easier reading on small screens</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="large-text">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Audio Lesson Summaries</h3>
+                <p>Get key points as voice notes after lessons</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="data-saver">Data Saver Mode</label>
+              <select id="data-saver">
+                <option value="off">Off</option>
+                <option selected>Medium (recommended)</option>
+                <option value="high">High (low bandwidth)</option>
+              </select>
+              <small class="hint">Reduces image/video quality to save data</small>
+            </div>
+          </div>
+        </section>
+
+        <!-- 💰 Payment Methods (Zambia Focused) -->
+        <section id="payments" class="settings-section">
+          <h2>Payment Methods</h2>
+          <div class="section-body">
+            <p class="hint">How you'll pay for lessons (ZMW only). No bank details needed!</p>
+            
+            <!-- MTN Mobile Money -->
+            <div class="payment-method active">
+              <div class="pm-icon">📱</div>
+              <div>
+                <strong>MTN Mobile Money</strong><br>
+                <small>+260977 *** 456</small>
+              </div>
+              <button class="btn-icon" aria-label="Edit">✏️</button>
+            </div>
+
+            <!-- Airtel Money -->
+            <div class="payment-method">
+              <div class="pm-icon">📱</div>
+              <div>
+                <strong>Airtel Money</strong><br>
+                <small>+260966 *** 789</small>
+              </div>
+              <button class="btn-icon" aria-label="Edit">✏️</button>
+            </div>
+
+            <!-- Zamtel Mobile Money (optional) -->
+            <!--
+            <div class="payment-method">
+              <div class="pm-icon">📱</div>
+              <div>
+                <strong>Zamtel Money</strong><br>
+                <small>+260955 *** 123</small>
+              </div>
+              <button class="btn-icon" aria-label="Edit">✏️</button>
+            </div>
+            -->
+
+            <button class="btn btn-secondary add-payment">
+              ➕ Add MTN or Airtel Number
+            </button>
+
+            <div class="form-group mt-2">
+              <label>Default Payment Method</label>
+              <div class="radio-group">
+                <label><input type="radio" name="default-pm" value="mtn" checked> MTN Mobile Money</label>
+                <label><input type="radio" name="default-pm" value="airtel"> Airtel Money</label>
+              </div>
+            </div>
+
+            <!-- Zambia-Specific Pricing Info -->
+            <div class="pricing-info">
+              <h3>Lesson Pricing (ZMW)</h3>
+              <div class="pricing-tier">
+                <span>Basic (30 min)</span>
+                <strong>ZMW 15</strong>
+              </div>
+              <div class="pricing-tier">
+                <span>Standard (45 min)</span>
+                <strong>ZMW 20</strong>
+              </div>
+              <div class="pricing-tier">
+                <span>Premium (60 min)</span>
+                <strong>ZMW 25</strong>
+              </div>
+              <small class="hint">💡 Pay only after lesson. No subscriptions.</small>
+            </div>
+
+            <div class="setting-item">
+              <div>
+                <h3>Auto-Pay for Booked Lessons</h3>
+                <p>Confirm payment automatically when lesson starts</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="learner-settings.js"></script>
+</body>
+</html>

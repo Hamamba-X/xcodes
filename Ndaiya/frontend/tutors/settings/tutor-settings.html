@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tutor Settings • Ndaiya</title>
+  <link rel="stylesheet" href="tutor-settings.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="container">
+      <a href="..\tutor-dashboard.html" class="back-btn" aria-label="Back to dashboard">←</a>
+      <h1 class="page-title">Tutor Settings</h1>
+      <div class="header-actions">
+        <button class="btn-icon" aria-label="Help">
+          <span>❓</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <div class="container">
+      <!-- Profile Summary -->
+      <section class="profile-summary">
+        <div class="avatar">🧑‍🏫</div>
+        <div>
+          <h2>Bwalya Chapesa</h2>
+          <p class="role-tag tutor">Tutor • Mathematics & Physics</p>
+        </div>
+      </section>
+
+      <!-- Settings Navigation -->
+      <nav class="settings-nav">
+        <button class="nav-tab active" data-target="profile">Profile</button>
+        <button class="nav-tab" data-target="tutor">Tutor Preferences</button>
+        <button class="nav-tab" data-target="privacy">Privacy & Security</button>
+        <button class="nav-tab" data-target="notifications">Notifications</button>
+        <button class="nav-tab" data-target="accessibility">Accessibility</button>
+        <button class="nav-tab" data-target="payments">Payout Methods</button>
+      </nav>
+
+      <!-- Settings Sections -->
+      <div class="settings-content">
+        <!-- 👤 Profile -->
+        <section id="profile" class="settings-section active">
+          <h2>Profile</h2>
+          <div class="section-body">
+            <div class="form-group">
+              <label for="full-name">Full Name</label>
+              <input type="text" id="full-name" value="Bwalya Chapesa">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" value="bwalya@example.com" readonly>
+              <small class="hint">Verified • Cannot be changed</small>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <div class="input-with-prefix">
+                <span class="prefix">+260</span>
+                <input type="tel" id="phone" value="971 234 567">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="qualification">Qualification</label>
+              <input type="text" id="qualification" value="BSc Mathematics, UNZA">
+            </div>
+            <div class="form-group">
+              <label for="bio">Bio (visible to learners)</label>
+              <textarea id="bio" rows="3">Passionate Maths & Physics tutor with 5+ years experience. I help students build confidence through real-world examples.</textarea>
+            </div>
+            <button class="btn btn-primary">💾 Save Profile</button>
+          </div>
+        </section>
+
+        <!-- 👩‍🏫 Tutor Preferences -->
+        <section id="tutor" class="settings-section">
+          <h2>Tutor Preferences</h2>
+          <div class="section-body">
+            <div class="form-group">
+              <label>Subjects I Teach</label>
+              <div class="chips">
+                <span class="chip active">Mathematics</span>
+                <span class="chip active">Physics</span>
+                <span class="chip">Chemistry</span>
+                <button class="chip add">➕ Add Subject</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="hourly-rate">Hourly Rate (ZMW)</label>
+              <input type="number" id="hourly-rate" value="120" min="50" max="500">
+              <small class="hint">Learners see: <strong>ZMW 120/hr</strong></small>
+            </div>
+            <div class="form-group">
+              <label>Availability</label>
+              <div class="availability-grid">
+                <div class="availability-day">
+                  <strong>Mon</strong>
+                  <label><input type="checkbox"> 4–6 PM</label>
+                  <label><input type="checkbox" checked> 6–8 PM</label>
+                </div>
+                <div class="availability-day">
+                  <strong>Tue</strong>
+                  <label><input type="checkbox"> 4–6 PM</label>
+                  <label><input type="checkbox"> 6–8 PM</label>
+                </div>
+                <div class="availability-day">
+                  <strong>Wed</strong>
+                  <label><input type="checkbox" checked> 4–6 PM</label>
+                  <label><input type="checkbox" checked> 6–8 PM</label>
+                </div>
+                <div class="availability-day">
+                  <strong>Thu</strong>
+                  <label><input type="checkbox"> 4–6 PM</label>
+                  <label><input type="checkbox"> 6–8 PM</label>
+                </div>
+                <div class="availability-day">
+                  <strong>Fri</strong>
+                  <label><input type="checkbox" checked> 4–6 PM</label>
+                  <label><input type="checkbox"> 6–8 PM</label>
+                </div>
+                <div class="availability-day">
+                  <strong>Sat</strong>
+                  <label><input type="checkbox"> 10 AM–12 PM</label>
+                  <label><input type="checkbox"> 2–4 PM</label>
+                </div>
+              </div>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Auto-Accept Lesson Requests</h3>
+                <p>Accept requests within 10 minutes if schedule allows</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Minimum Advance Booking</h3>
+                <p>Require learners to book at least this far ahead</p>
+              </div>
+              <select>
+                <option>Immediately</option>
+                <option selected>30 minutes</option>
+                <option>1 hour</option>
+                <option>3 hours</option>
+              </select>
+            </div>
+            <button class="btn btn-primary">💾 Save Tutor Settings</button>
+          </div>
+        </section>
+
+        <!-- 🔒 Privacy & Security -->
+        <section id="privacy" class="settings-section">
+          <h2>Privacy & Security</h2>
+          <div class="section-body">
+            <div class="setting-item">
+              <div>
+                <h3>Two-Factor Authentication</h3>
+                <p>Secure your account with SMS (MTN/Airtel)</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="2fa-toggle">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Show in Public Tutor Directory</h3>
+                <p>Learners can find you by subject/location</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Anonymous Ratings</h3>
+                <p>Hide your name from learner feedback</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Download My Data</h3>
+                <p>Export lessons, earnings, and learner interactions</p>
+              </div>
+              <button class="btn btn-secondary">📥 Export Data</button>
+            </div>
+            <div class="setting-item danger-zone">
+              <div>
+                <h3 class="danger">Deactivate Tutor Account</h3>
+                <p>Pause tutoring (keep profile & history)</p>
+              </div>
+              <button class="btn btn-warning">⏸️ Deactivate</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 🔔 Notifications -->
+        <section id="notifications" class="settings-section">
+          <h2>Notifications</h2>
+          <div class="section-body">
+            <div class="setting-item">
+              <div>
+                <h3>New Lesson Request</h3>
+                <p>When a learner books a session</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Lesson Reminder</h3>
+                <p>30 minutes before session starts</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Payment Received</h3>
+                <p>When payout is processed</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Monthly Earnings Report</h3>
+                <p>Sent on the 1st of each month</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label>Notification Method</label>
+              <div class="radio-group">
+                <label><input type="radio" name="notify-method" value="sms" checked> SMS (MTN/Airtel)</label>
+                <label><input type="radio" name="notify-method" value="email"> Email</label>
+                <label><input type="radio" name="notify-method" value="in-app"> In-App Only</label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ♿ Accessibility -->
+        <section id="accessibility" class="settings-section">
+          <h2>Accessibility</h2>
+          <div class="section-body">
+            <div class="setting-item">
+              <div>
+                <h3>High Contrast Mode</h3>
+                <p>Improve readability for low vision</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="high-contrast">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Large Text</h3>
+                <p>Increase font size across the app</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="large-text">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <div>
+                <h3>Screen Reader Optimized</h3>
+                <p>Enhanced ARIA labels for lesson tools</p>
+              </div>
+              <span class="status">✅ Enabled</span>
+            </div>
+            <div class="form-group">
+              <label for="prefer-reduced-motion">Reduce Motion</label>
+              <select id="prefer-reduced-motion">
+                <option value="no-preference">No Preference</option>
+                <option value="reduce">Reduce Animations</option>
+                <option value="remove">Remove All Motion</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <!-- 💰 Payout Methods -->
+        <section id="payments" class="settings-section">
+          <h2>Payout Methods</h2>
+          <div class="section-body">
+            <p class="hint">Where you receive payments from learners (weekly payouts).</p>
+            
+            <div class="payment-method active">
+              <div class="pm-icon">📱</div>
+              <div>
+                <strong>MTN Mobile Money</strong><br>
+                <small>+260971 *** 567</small>
+              </div>
+              <button class="btn-icon" aria-label="Edit">✏️</button>
+            </div>
+
+            <div class="payment-method">
+              <div class="pm-icon">📱</div>
+              <div>
+                <strong>Airtel Money</strong><br>
+                <small>+260961 *** 889</small>
+              </div>
+              <button class="btn-icon" aria-label="Edit">✏️</button>
+            </div>
+
+            <button class="btn btn-secondary add-payment">
+              ➕ Add Payout Method
+            </button>
+
+            <div class="form-group mt-2">
+              <label>Default for Payouts</label>
+              <div class="radio-group">
+                <label><input type="radio" name="default-pm" value="mtn" checked> MTN Mobile Money</label>
+                <label><input type="radio" name="default-pm" value="airtel"> Airtel Money</label>
+                <label><input type="radio" name="default-pm" value="bank"> Bank Transfer</label>
+              </div>
+            </div>
+
+            <div class="setting-item">
+              <div>
+                <h3>Auto-Payout Threshold</h3>
+                <p>Minimum balance before payout is sent</p>
+              </div>
+              <select>
+                <option>ZMW 50</option>
+                <option selected>ZMW 100</option>
+                <option>ZMW 200</option>
+                <option>Manual Only</option>
+              </select>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="tutor-settings.js"></script>
+</body>
+</html>
